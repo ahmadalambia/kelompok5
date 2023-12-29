@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 # E1E122025_ NUR FADILLAH
-from .models import Roti, AishTea, Saguku, Wang, TelaTela
+from .models import Roti, AishTea, Saguku, Wang, EsBuah
 
 # Uzlah merubah import dan register Menu menjadi Roti dan RotiAdmin sekaligus setting untuk tampilkan gambar di admin
 # @admin.register(Roti)
@@ -45,7 +45,7 @@ from .models import Roti, AishTea, Saguku, Wang, TelaTela
 
 #merupakan konsep decorator yang fungsinya untuk mendaftarkan class model di admin interface Django. BaseMenuAdmin adalah class yang memperluas admin.ModelAdmin dan menentukan tata letak tampilan admin untuk model-menu.
 
-admin.site.register(TelaTela)
+admin.site.register(EsBuah)
 @admin.register(Roti, AishTea, Saguku, Wang)
 class BaseMenuAdmin(admin.ModelAdmin):
     list_display = ["nama_menu","deskripsi","_harga","display_image"]

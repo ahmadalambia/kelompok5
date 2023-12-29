@@ -24,6 +24,9 @@ class AishTea(BaseMenu):
 
 class Wang(BaseMenu):
     pass
+class EsBuah(BaseMenu):
+    pass
+
 #2 Encapsulation 2 (akses cuma di class ini)
 class Saguku(BaseMenu):
     @property
