@@ -78,7 +78,7 @@ class telatela(BaseMenu):
     #Polymorphism yang tujuannya untuk mengganti perilaku metode str, walaupun tetap sama namun kita memiliki implementasi yang berbeda dengan kelas lainnya
 
 
-####### 2 ########
+####### 2 ######@@@
 class BaseMenu(models.Model):
     nama_pembeli= models.CharField(max_length=255)
     
