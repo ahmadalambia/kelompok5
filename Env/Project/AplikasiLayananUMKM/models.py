@@ -4,7 +4,7 @@ class BaseMenu(models.Model):
     nama_menu = models.CharField(max_length=255)
     deskripsi = models.TextField()
 
-    #Encapsulation 1 (variabel dirubah menjadi privat)
+    #Encapsulation 1 
     _harga = models.DecimalField(max_digits=10, decimal_places=2)
 
     gambar = models.ImageField(upload_to='img/', null=True)
@@ -37,8 +37,8 @@ class Saguku(BaseMenu):
         if self._harga < 0:
             self._harga = self.__class__.objects.get(pk=self.pk)._harga
         super().save(*args, **kwargs)
-#  kodingan ini berisi encapsulation yang tujuannya ketika ada admin yang mengisi harga di bawah nol maka tampilannya itu akan terprivate
-        
+
+       
 class Esteh(BaseMenu):
     @property
     def harga(self):
@@ -48,14 +48,41 @@ class Esteh(BaseMenu):
         if self._harga < 10.000:
             self._harga = self.__class__.objects.get(pk=self.pk)._harga
         super().save(*args, **kwargs)
-        #  kodingan ini berisi encapsulation yang tujuannya ketika ada admin yang mengisi harga di bawah Rp 10.000,00 maka tampilannya itu akan terprivate
+         # kodingan ini merupakan encapsulation
+       
 
 class AyamGeprek(BaseMenu):
     def __str__(self):
         return f"AyamGeprek: {self.nama_menu}, Harga: {self.harga}"
-    # kodingan ini merupakan Polymorphism yang tujuannya untuk mengganti perilaku metode str, walaupun tetap sama namun kita memiliki implementasi yang berbeda dengan kelas lainnya
+    # kodingan ini merupakan Polymorphism
 
 #3. Class Baru menerapkan Polymorphism
 class TelaTela(BaseMenu):
     def __str__(self):
         return f"{self.nama_menu} | {self.deskripsi}"
+
+
+
+
+
+
+######### 3 #################
+class telatela(BaseMenu):
+    def __str__(self):
+        return f"{self.harga} | {self.deskripsi}"
+    # encapsulation ketika ada admin yang mengisi harga di bawah nol maka tampilannya itu akan terprivate
+    def save(self, *args, **kwargs):
+        if self._harga < 15.000:
+            self._harga = self.__class__.objects.get(pk=self.pk)._harga
+        super().save(*args, **kwargs)
+    #Polymorphism yang tujuannya untuk mengganti perilaku metode str, walaupun tetap sama namun kita memiliki implementasi yang berbeda dengan kelas lainnya
+
+
+####### 2 ########
+class BaseMenu(models.Model):
+    nama_pembeli= models.CharField(max_length=255)
+    
+
+
+
+
