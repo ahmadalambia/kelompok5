@@ -66,21 +66,21 @@ class TelaTela(BaseMenu):
 
 
 
-######### 3 #################
-class telatela(BaseMenu):
-    def __str__(self):
-        return f"{self.harga} | {self.deskripsi}"
-    # encapsulation ketika ada admin yang mengisi harga di bawah nol maka tampilannya itu akan terprivate
-    def save(self, *args, **kwargs):
-        if self._harga < 15.000:
-            self._harga = self.__class__.objects.get(pk=self.pk)._harga
-        super().save(*args, **kwargs)
-    #Polymorphism yang tujuannya untuk mengganti perilaku metode str, walaupun tetap sama namun kita memiliki implementasi yang berbeda dengan kelas lainnya
+# ######### 3 #################
+# class telatela(BaseMenu):
+#     def __str__(self):
+#         return f"{self.harga} | {self.deskripsi}"
+#     # encapsulation ketika ada admin yang mengisi harga di bawah nol maka tampilannya itu akan terprivate
+#     def save(self, *args, **kwargs):
+#         if self._harga < 15.000:
+#             self._harga = self.__class__.objects.get(pk=self.pk)._harga
+#         super().save(*args, **kwargs)
+#     #Polymorphism yang tujuannya untuk mengganti perilaku metode str, walaupun tetap sama namun kita memiliki implementasi yang berbeda dengan kelas lainnya
 
 
-####### 2 ######@@@
-class BaseMenu(models.Model):
-    nama_pembeli= models.CharField(max_length=255)
+# ####### 2 ######@@@
+# class BaseMenu(models.Model):
+#     nama_pembeli= models.CharField(max_length=255)
     
 
 
